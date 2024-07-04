@@ -9,6 +9,9 @@ python:
 install:
 - pip install -r requirements_dev.txt
 script: tox
+before_deploy:
+- git stash --all
+- rm -rf src/debiased_sd.egg-info
 deploy:
   provider: pypi
   distributions: sdist bdist_wheel
