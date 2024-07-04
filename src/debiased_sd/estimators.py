@@ -20,7 +20,7 @@ from .utils import \
 # Valid methods
 valid_std_methods = [
     'vanilla', 
-    'loo', 
+    'jackknife', 
     'bootstrap', 
     'gaussian', 
     'kappa',
@@ -48,7 +48,7 @@ def std(
     method: str
         Which method should be used? Must be one of:
             vanilla: No adjustment
-            loo: Leave-one-out jackknife
+            jackknife: Leave-one-out jackknife
             bootstrap: Bootstrap
             gaussian: Known Gaussian C_n calculation
             kappa: First-order adjustment based on kurtosis
@@ -71,7 +71,7 @@ def std(
     # Input checks
     assert method in valid_std_methods, f'method must be one of {valid_std_methods}'
     # calculate the square root of the variance
-    if method == 'loo':
+    if method == 'jackknife':
         sighat = sd_jackknife(x, axis=axis, ddof=ddof, **kwargs)
     elif method == 'bootstrap':
         sighat = sd_bootstrap(x, axis=axis, ddof=ddof, 

@@ -1,12 +1,10 @@
 """Console script for debiased_sd."""
-import debiased_sd
-
+import src.debiased_sd
 import typer
 from rich.console import Console
 
 app = typer.Typer()
 console = Console()
-
 
 @app.command()
 def main():
@@ -15,7 +13,6 @@ def main():
                "debiased_sd.cli.main")
     console.print("See Typer documentation at https://typer.tiangolo.com/")
     
-
 
 if __name__ == "__main__":
     app()

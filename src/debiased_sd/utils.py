@@ -121,9 +121,9 @@ def sd_kappa(
         assert isinstance(kurtosis_fun, callable), 'if you supply an other_method, it must be callabte'
         kappa = kurtosis_fun(x, axis=axis, **kwargs)
     if debias_cumulants:
-        kappa = kurtosis(a=x, bias=False, **kwargs)
+        kappa = kurtosis(a=x, fisher=False, bias=False, **kwargs)
     else:
-        kappa = kurtosis(a=x, bias=True, **kwargs)
+        kappa = kurtosis(a=x, fisher=False, bias=True, **kwargs)
     # Calculate C_n
     C_n_kappa = 1 / ( 1 - (kappa - 1 + 2/(n-1)) / (8*n) ) 
     # Return adjusted value
