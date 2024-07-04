@@ -5,8 +5,8 @@ Debiased SD
 .. image:: https://img.shields.io/pypi/v/debiased_sd.svg
         :target: https://pypi.python.org/pypi/debiased_sd
 
-.. image:: https://img.shields.io/travis/erikinbc/debiased_sd.svg
-        :target: https://travis-ci.com/erikinbc/debiased_sd
+.. image:: https://api.travis-ci.com/ErikinBC/debiased_sd.svg
+        :target: https://app.travis-ci.com/github/ErikinBC/debiased_sd/
 
 .. image:: https://readthedocs.org/projects/debiased-sd/badge/?version=latest
         :target: https://debiased-sd.readthedocs.io/en/latest/?version=latest
