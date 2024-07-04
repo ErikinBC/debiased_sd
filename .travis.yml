@@ -16,6 +16,6 @@ deploy:
   password:
     secure: n/S/7AGLTwY9r8+rdXb3o4u7H7mloD6im1BS59EDULCEibkZBejRPPMAHl0Mz/dh0IG+DEcNskSc5AsefVhmnl2+bZv0ukGI/fKgPZsVBtj8F4tQ0JjtFbgsqeZXOmg9cO5KfaSJHbpWrIT8yxN+osZab+ecKU32L4Y+EENjBXX0AnhYjGjFBk8jquKgiJdpS6UjRX+II8xoFrspVhktNJkpmyg8Xhj9h3S42djOxCQBdMyQYvTT35/mOD49dSmA9pxpfopW8ZnALTgAAX8HKCiL/87ho6eK5E0eXaPvz4XVZEMo+6T/qN+Zxez5tPnIUMRHr5Mbd4WNkgnm5Ry4kD8WhYhoHMe/bxvn0GNNOvV9hyY8bpuZJwITed7RNy53J0CgR9onkvmfkcxSeo5/uHbHOheKcRgedfQA5ldHyQBWrqTqz0sqo0Y0pbUukVNL/UcgKTOidJ/tThsJvhhslTLDawt75yKZzU5wb+ktiCm98UrzXNKqf3T0ptDdBbkHpzvAfwqEWx5uZTd5QbH+PtLqma/lJbav2aWAK/G+HEt9DSoZIDzhxT14tx2EOm/HrvcWND1d7NeCajiPvuiW6p+E/lsgpyjLVzXxz9JXD2uXonbWf0hziyHJ8yMZyByz3lNhjxE8aSV+NbuoEiP0mb424pwEiLhOmvjO9pZTDxs=
   on:
-    repo: erikinbc/debiased_sd
+    repo: debiased_sd
     branch: production
     python: 3.11
