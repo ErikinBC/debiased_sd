@@ -13,12 +13,11 @@ Debiased SD
         :alt: Documentation Status
 
 
-Package for debiasing the sample SD estimator. For more information, see [De-biasing standard deviation estimators](http://www.erikdrysdale.com/sd_debias/). 
+Package for debiasing the sample SD estimator. For more information, see `De-biasing standard deviation estimators <http://www.erikdrysdale.com/sd_debias/>`_. 
 
 * Free software: GNU General Public License v3
 * Documentation: https://debiased-sd.readthedocs.io.
 
-<br>
 
 Features
 --------
@@ -28,29 +27,33 @@ Features
 * Jackknife bias estimator
 * Exact Gaussian estimator
 
-<br>
 
 Package structure
--------
+-----------------
 
-debiased_sd/
-├── src/
-│   └── debiased_sd/
-│       ├── __init__.py
-│       ├── estimators.py
-│       ├── utils.py
-│       └── Other source files
-├── tests/
-│   └── test_debiased_sd.py
-├── docs/
-│   ├── conf.py
-│   ├── index.rst
-│   └── other_docs_files
-├── setup.py
-├── requirements_dev.txt
-└── README.rst
+Directory Structure
+===================
 
-<br>
+::
+
+    debiased_sd/
+    ├── src/
+    │   └── debiased_sd/
+    │       ├── __init__.py
+    │       ├── estimators.py
+    │       ├── utils.py
+    │       └── Other source files
+    ├── tests/
+    │   └── test_debiased_sd.py
+    ├── docs/
+    │   ├── conf.py
+    │   ├── index.rst
+    │   └── other_docs_files
+    ├── setup.py
+    ├── requirements_dev.txt
+    └── README.rst
+
+
 
 Credits
 -------

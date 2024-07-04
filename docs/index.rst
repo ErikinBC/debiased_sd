@@ -1,5 +1,5 @@
 Welcome to Debiased SD's documentation!
-======================================
+=======================================
 
 .. toctree::
    :maxdepth: 2
@@ -7,8 +7,9 @@ Welcome to Debiased SD's documentation!
 
    readme
    installation
+   source/debiased_sd
+   source/modules
    usage
-   modules
    contributing
    authors
    history

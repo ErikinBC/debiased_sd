@@ -1,11 +1,5 @@
 """
-Main module.
-
-https://github.com/audreyfeldroy/cookiecutter-pypackage
-
-https://github.com/cookiecutter/cookiecutter?tab=readme-ov-file
-
-https://simonwillison.net/2024/Jan/16/python-lib-pypi/
+The estimators contains the main `std` class.
 """
 
 # External modules
@@ -39,7 +33,7 @@ def std(
     """
     Main standard deviation adjustment method to debias or reduce the bias. 
     
-    If :math:`\sigma^2 = E[X - E[X]]^2`, then we are looking for an estimator, :math:`S`, with the property :math:`E[S] = \sigma`. When :math:`S` is the sample standard deviation (SD), then :math:`E[S] \leq \sigma`, and we either adjust it with a scaling factor: :math:`E[S] \cdot C_n = \sigma`, or a non-parametric bias shift: :math:`E[S + \text{bias}(X)] \approx \sigma`.
+    If :math:`\sigma^2 = E[X - E[X]]^2`, then we are looking for an estimator, :math:`S`, with the property :math:`E[S] = \sigma`. When :math:`S` is the sample standard deviation (SD), then :math:`E[S] \leq \sigma`, and we either adjust it with a scaling factor: :math:`E[S] \cdot C_n = \sigma`, or a non-parametric bias shift :math:`E[S + \mathrm{bias}(X)] = \sigma`.
 
     Parameters
     ----------
