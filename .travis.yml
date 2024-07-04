@@ -1,21 +1,24 @@
 # Background on the setup
 # 1) travis login --pro --github-token {PRIVATE}
-# 2) travis encrypt {PRIVATE} --add deploy.password --com 
+# 2) travis encrypt "{PRIVATE}" --add deploy.password --com 
 
 language: python
+dist: jammy
 python:
 - 3.11
 install:
-- pip install -r requirements.txt
+- pip install -r requirements_dev.txt
 script: tox
+before_deploy:
+- rm -rf src/debiased_sd.egg-info
+- git stash --all
 deploy:
   provider: pypi
   distributions: sdist bdist_wheel
-  user: ErikinEast
+  user: ErikinBC
   password:
-    secure: n/S/7AGLTwY9r8+rdXb3o4u7H7mloD6im1BS59EDULCEibkZBejRPPMAHl0Mz/dh0IG+DEcNskSc5AsefVhmnl2+bZv0ukGI/fKgPZsVBtj8F4tQ0JjtFbgsqeZXOmg9cO5KfaSJHbpWrIT8yxN+osZab+ecKU32L4Y+EENjBXX0AnhYjGjFBk8jquKgiJdpS6UjRX+II8xoFrspVhktNJkpmyg8Xhj9h3S42djOxCQBdMyQYvTT35/mOD49dSmA9pxpfopW8ZnALTgAAX8HKCiL/87ho6eK5E0eXaPvz4XVZEMo+6T/qN+Zxez5tPnIUMRHr5Mbd4WNkgnm5Ry4kD8WhYhoHMe/bxvn0GNNOvV9hyY8bpuZJwITed7RNy53J0CgR9onkvmfkcxSeo5/uHbHOheKcRgedfQA5ldHyQBWrqTqz0sqo0Y0pbUukVNL/UcgKTOidJ/tThsJvhhslTLDawt75yKZzU5wb+ktiCm98UrzXNKqf3T0ptDdBbkHpzvAfwqEWx5uZTd5QbH+PtLqma/lJbav2aWAK/G+HEt9DSoZIDzhxT14tx2EOm/HrvcWND1d7NeCajiPvuiW6p+E/lsgpyjLVzXxz9JXD2uXonbWf0hziyHJ8yMZyByz3lNhjxE8aSV+NbuoEiP0mb424pwEiLhOmvjO9pZTDxs=
+    secure: pKVfJkNmcKAM9e5L6VXkYVzeW4KNKLEBdAndAZ2PaQZLisCzr3J5GDX/G+f0sh/Iejz4RIWmQJSwqRecweVHFYC0zoJM1Tm8u55O2S/hD2G5/oipiTEbep67mdp5hskcoXhZrKrOQE0obT6mNqoX93/t3E+y1aidMtARpq0QUIFACaT2JYyRE19taBIx3hSgNKzXrZjVrpOtBZaXamQby/pBxr43x7ocRA7Nu9xfVcPSqn9Oae+cXiSOpis5cBBp+f8AWQG0ltmJI8mqkE4c/CO02jRSIY91AHWzL5dpa4hK5+8x6CZcLyR4d4XJz52+lLIpwd2KvbQ/1cwOiaz0OT2WDlBFWdzB7wmahDgwJO+89GKoWQbm0D/idtpDHyB3mT5N82byD7i0lagcPQ8xh+f41+iTaVImPV0lcnMBVQ6//MSdDfgLUyvI7H+K194ZumbKBlCndKlaeJY4tBpRl46j8DGiXBLKnA62DsQ1y7NXE7UeJB2F/GJaR/IqTdpYOwmlaI31hX6rvsnuRS94aSchX5iQdbbUCXyU4NPOmJOYI3WwEIGIB2apNoezNgjntIhUMJcueE9SWmCKPlCI5+rFBzvtnxpCaRCsA8b2G73yl8vWayrj8c+jo0nfPn8bRmzKbEG1D56Kgry02FumzZu1uWQazlfoYLdrGMc/GZk=
   on:
-    tags: true
-    repo: erikinbc/debiased_sd
+    repo: ErikinBC/debiased_sd
     branch: production
     python: 3.11
