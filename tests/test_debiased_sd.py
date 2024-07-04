@@ -16,7 +16,7 @@ from src.debiased_sd.estimators import std, valid_std_methods
 seed = 1234
 p_seq = [0.25, 0.5, 0.75]
 m = 50
-dist_binom = binom(p = p_seq, n = m)
+dist_binom = binom(p=p_seq, n=m)
 oracle_sd = np.sqrt(dist_binom.stats('v'))
 n = 500
 err_tol = 2 / np.sqrt(n)
@@ -48,4 +48,3 @@ class TestDebiasedSD(unittest.TestCase):
                 np.testing.assert_allclose(sighat_mu, oracle_sd, atol=err_tol)
                 bias = np.mean(sighat_mu - oracle_sd)
                 print(f'method = {method}, bias={bias:.3f}')
-                
