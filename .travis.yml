@@ -3,6 +3,7 @@
 # 2) travis encrypt {PRIVATE} --add deploy.password --com 
 
 language: python
+dist: jammy
 python:
 - 3.11
 install:
