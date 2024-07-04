@@ -1,7 +1,3 @@
-# Background on the setup
-# 1) travis login --pro --github-token {PRIVATE}
-# 2) travis encrypt {PRIVATE} --add deploy.password --com 
-
 language: python
 dist: jammy
 python:
@@ -10,14 +6,14 @@ install:
 - pip install -r requirements_dev.txt
 script: tox
 before_deploy:
-- git stash --all
 - rm -rf src/debiased_sd.egg-info
+- git stash --all
 deploy:
   provider: pypi
   distributions: sdist bdist_wheel
   user: ErikinBC
   password:
-    secure: n/S/7AGLTwY9r8+rdXb3o4u7H7mloD6im1BS59EDULCEibkZBejRPPMAHl0Mz/dh0IG+DEcNskSc5AsefVhmnl2+bZv0ukGI/fKgPZsVBtj8F4tQ0JjtFbgsqeZXOmg9cO5KfaSJHbpWrIT8yxN+osZab+ecKU32L4Y+EENjBXX0AnhYjGjFBk8jquKgiJdpS6UjRX+II8xoFrspVhktNJkpmyg8Xhj9h3S42djOxCQBdMyQYvTT35/mOD49dSmA9pxpfopW8ZnALTgAAX8HKCiL/87ho6eK5E0eXaPvz4XVZEMo+6T/qN+Zxez5tPnIUMRHr5Mbd4WNkgnm5Ry4kD8WhYhoHMe/bxvn0GNNOvV9hyY8bpuZJwITed7RNy53J0CgR9onkvmfkcxSeo5/uHbHOheKcRgedfQA5ldHyQBWrqTqz0sqo0Y0pbUukVNL/UcgKTOidJ/tThsJvhhslTLDawt75yKZzU5wb+ktiCm98UrzXNKqf3T0ptDdBbkHpzvAfwqEWx5uZTd5QbH+PtLqma/lJbav2aWAK/G+HEt9DSoZIDzhxT14tx2EOm/HrvcWND1d7NeCajiPvuiW6p+E/lsgpyjLVzXxz9JXD2uXonbWf0hziyHJ8yMZyByz3lNhjxE8aSV+NbuoEiP0mb424pwEiLhOmvjO9pZTDxs=
+    secure: oLnfPsgjsSf9A+SKXEAZXJdZ0jviGGgURpQDtMrN5/9Kivbh2DZHC/mfYJGmTH7sDul3SjEHcAfc+W4U28cBHYqA+M8OQ+e2KG41vx77BonOoI50UUhPLOxQFT1Pr5H4msf5WAao/BoephEltVYqtF4pXJb+kox2FySmQzsAEute0obAS7LUklkC/lw8apSF3l135qqAJuz0WUgq+aJyssxVp0QqVJ3xROIBK5g0QjNDu2coRa88BPm0J5V1/d2/N6u/1W5Eqzo1aF3x7CTMJCe+ePQev4Uu4eQatVe4TVw8ENCRAi4tRTU7CC8YBkrmIPlVqdYQ/Lboh1AYq4aoPfPx+IQOGNYO1vbSauoN88k1hNVQPfI8JJF0HZGg6VWCo1NjMn/Y/oiKqooPG6iqGA7H30nCwe5ky+7htawvkfiB0AFOIcsLBG9BknUkkMZsLUtqrA4u569/b0V6xjyA9ss0sV/xMI36ZaY/v8Bl3Ex29CpvRcJkQvmv3wTRnxCb0yCUABWRr1C4XoQEG2jIRkCdLAu474CvDENzkKxWnvhml2VcpB31FJRuFvexOqO0IpQfQh+LfsSX5pjetStdtBtxTqdOYyVMj8Ejcs5O275ZeTZkF1VNrYXPB+wXzXhXHBACcoju6YEPDGthk8Z7bbe5NWPUk0omT+ki37rDoXU=
   on:
     repo: ErikinBC/debiased_sd
     branch: production

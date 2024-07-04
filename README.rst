@@ -62,3 +62,9 @@ This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypack
 
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
 .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+
+PyPI distribution built with Travis CI:
+
+1. travis login --pro --github-token {PRIVATE}
+2. travis encrypt "{PRIVATE}" --add deploy.password --com 
+
