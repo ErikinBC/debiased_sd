@@ -65,13 +65,13 @@ def sd_gaussian(
     
     Args
     ====
-    x: np.ndarray
+    x : np.ndarray
         An array or array-like object of arbitrary dimension: x.shape = (d1, d2, ..., dk)
-    axis: int | None = None
+    axis : int, optional
         Axis to calculate the SD over
-    ddof: int = 1
+    ddof : int, optional
         The degrees of freedom for the sample SD
-    approx: bool = True
+    approx : bool, optional
         Should a log-approximation be used for the Gamma function calculation? Recommended if n is large
     """
     # Input checks
@@ -92,7 +92,6 @@ def sd_gaussian(
 
 def sd_kappa(
             x: np.ndarray, 
-            kappa: np.ndarray, 
             axis: int | None = None,
             ddof:int = 1, 
             debias_cumulants: bool = True,
@@ -104,15 +103,15 @@ def sd_kappa(
 
     Args
     ====
-    x: np.ndarray
+    x : np.ndarray
         An array or array-like object of arbitrary dimension: x.shape = (d1, d2, ..., dk)
-    axis: int | None = None
+    axis : int | None, optional
         Axis to calculate the SD over
-    ddof: int = 1
+    ddof : int, optional
         The degrees of freedom for the sample SD
-    debias_cumulants: bool = True
+    debias_cumulants : bool, optional
         Should the "debiased" versions of the cumulants to be used? See https://mathworld.wolfram.com/Cumulant.html (this is the default in pandas.kurtosis btw)
-    kurtosis_fun: Callable | None = None
+    kurtosis_fun : Callable | None, optional
         Should an alternative kurtosis calculation be used? Will pass in kwargs & axis.
     """
     # Input checks
@@ -146,11 +145,11 @@ def sd_jackknife(
 
     Args
     ====
-    x: np.ndarray
+    x : np.ndarray
         An array or array-like object of arbitrary dimension: x.shape = (d1, d2, ..., dk)
-    axis: int | None = None
+    axis : int, optional
         Axis to calculate the SD over
-    ddof: int = 1
+    ddof : int, optional
         The degrees of freedom for the sample SD
     """
     # Input checks
@@ -165,8 +164,9 @@ def sd_jackknife(
     n_adj = (n-1) / (n - ddof - 1)
     # Clip is needed for ≈ 0 values which are negative
     sighat_loo = np.sqrt(n_adj * np.clip(sigma2_loo, 0, None))
+    sighat_loo_mu = np.mean(sighat_loo, axis=axis)
     # Calculate the bias and offset
-    bias_jackknife = (n - 1) * (sighat_loo - sighat)
+    bias_jackknife = (n - 1) * (sighat_loo_mu - sighat)
     sighat -= bias_jackknife
     return sighat
 
@@ -188,15 +188,15 @@ def sd_bootstrap(
 
     Args
     ====
-    x: np.ndarray
+    x : np.ndarray
         An array or array-like object of arbitrary dimension: x.shape = (d1, d2, ..., dk)
-    axis: int | None = None
+    axis : int | None, optional
         Axis to calculate the SD over
-    ddof: int = 1
+    ddof : int, optional
         The degrees of freedom for the sample SD
-    num_boot: int = 1000
+    num_boot : int, optional
         If method=='bootstrap', how many bootstrap sample to draw? Note that this approach will broadcast the original array with an addition {num_boot} rows in the axis=-1 dimension, so keep that in mind for memorary consideration
-    random_state: int | None = None
+    random_state : int | None, optional
         Reproducability seed for the bootstrap method
     """
     # Input checks
