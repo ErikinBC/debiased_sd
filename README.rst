@@ -2,7 +2,6 @@
 Debiased SD
 ===========
 
-
 .. image:: https://img.shields.io/pypi/v/debiased_sd.svg
         :target: https://pypi.python.org/pypi/debiased_sd
 
@@ -14,10 +13,7 @@ Debiased SD
         :alt: Documentation Status
 
 
-
-
-Package for debiasing the sample SD estimator
-
+Package for debiasing the sample SD estimator. For more information, see `De-biasing standard deviation estimators <http://www.erikdrysdale.com/sd_debias/>`_. 
 
 * Free software: GNU General Public License v3
 * Documentation: https://debiased-sd.readthedocs.io.
@@ -26,7 +22,38 @@ Package for debiasing the sample SD estimator
 Features
 --------
 
-* TODO
+* Kurtosis-based estimator
+* Bootstrap bias estimator
+* Jackknife bias estimator
+* Exact Gaussian estimator
+
+
+Package structure
+-----------------
+
+Directory Structure
+===================
+
+::
+
+    debiased_sd/
+    ├── src/
+    │   └── debiased_sd/
+    │       ├── __init__.py
+    │       ├── estimators.py
+    │       ├── utils.py
+    │       └── Other source files
+    ├── tests/
+    │   └── test_debiased_sd.py
+    ├── docs/
+    │   ├── conf.py
+    │   ├── index.rst
+    │   └── other_docs_files
+    ├── setup.py
+    ├── requirements_dev.txt
+    └── README.rst
+
+
 
 Credits
 -------
